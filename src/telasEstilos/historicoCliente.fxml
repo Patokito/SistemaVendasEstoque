@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controlers.HistoricoClienteController">
+
+    <!-- TOPO -->
+    <top>
+        <VBox>
+            <padding>
+                <Insets top="10" right="15" bottom="10" left="15"/>
+            </padding>
+
+            <Label text="Histórico do Cliente">
+                <font>
+                    <Font size="22"/>
+                </font>
+            </Label>
+        </VBox>
+    </top>
+
+    <!-- CENTRO -->
+    <center>
+        <VBox spacing="15">
+            <padding>
+                <Insets top="15" right="15" bottom="15" left="15"/>
+            </padding>
+
+            <!-- DADOS DO CLIENTE -->
+            <GridPane hgap="15" vgap="10">
+
+                <columnConstraints>
+                    <ColumnConstraints percentWidth="20"/>
+                    <ColumnConstraints percentWidth="80"/>
+                </columnConstraints>
+
+                <Label text="ID:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                <Label fx:id="lblId" text="-" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                <Label text="Nome:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                <Label fx:id="lblNome" text="-" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                <Label text="CPF:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                <Label fx:id="lblCpf" text="-" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+                <Label text="Telefone:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                <Label fx:id="lblTelefone" text="-" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+                <Label text="Criado em:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+                <Label fx:id="lblCreatedAt" text="-" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+
+            </GridPane>
+
+            <!-- FILTRO -->
+            <TextField fx:id="txtBuscarProduto"
+                       promptText="Filtrar produto comprado..."
+                       VBox.vgrow="NEVER"/>
+
+            <!-- TABELA -->
+            <TableView fx:id="tbHistorico" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="colIdProduto" text="ID Produto"/>
+                    <TableColumn fx:id="colNomeProduto" text="Produto"/>
+                    <TableColumn fx:id="colQuantidade" text="Quantidade"/>
+                    <TableColumn fx:id="colPrecoUni" text="Preço Unitário"/>
+                    <TableColumn fx:id="colPrecoTotal" text="Preço Total"/>
+                    <TableColumn fx:id="colDataCompra" text="Data"/>
+                </columns>
+            </TableView>
+
+        </VBox>
+    </center>
+
+</BorderPane>

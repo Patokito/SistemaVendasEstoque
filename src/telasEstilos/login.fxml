@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox spacing="15" alignment="CENTER"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="controlers.LoginController"
+      style="-fx-font-size: 18px;">
+
+    <padding>
+        <Insets top="30" right="30" bottom="30" left="30"/>
+    </padding>
+
+    <Label text="Login" style="-fx-font-size: 22px; -fx-font-weight: bold;"/>
+
+    <TextField fx:id="txtUsuario" promptText="Usuário"/>
+
+    <PasswordField fx:id="txtSenha" promptText="Senha"/>
+
+    <Button text="Entrar" fx:id="btnEntrar" onAction="#login"/>
+
+    <Label fx:id="lblMensagem" style="-fx-text-fill: red;"/>
+
+</VBox>

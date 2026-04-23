@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlers.ProcessarClienteController">
+
+    <!-- TOPO -->
+    <top>
+        <VBox>
+
+            <!-- MENU -->
+            <MenuBar>
+                <menus>
+
+                    <Menu text="Home">
+                        <items>
+                            <MenuItem fx:id="itemInicio" text="Inicio" />
+                            <MenuItem fx:id="itemSair" text="Sair" />
+                        </items>
+                    </Menu>
+
+                    <Menu text="Cadastrar" fx:id="menuCadastrar">
+                        <items>
+                            <MenuItem fx:id="itemFuncionario" text="Funcionário" />
+                            <MenuItem fx:id="itemCliente" text="Cliente" />
+                            <MenuItem fx:id="itemProduto" text="Produto" />
+                        </items>
+                    </Menu>
+
+                    <Menu text="Processar" fx:id="menuProcessar">
+                        <items>
+                            <MenuItem fx:id="itemProcessarEstoque" text="Estoque" />
+                        </items>
+                    </Menu>
+
+                    <Menu text="Ajuda">
+                        <items>
+                            <MenuItem fx:id="itemSobre" text="Sobre" />
+                        </items>
+                    </Menu>
+
+                </menus>
+            </MenuBar>
+
+            <!-- TÍTULO -->
+            <VBox>
+                <padding>
+                    <Insets bottom="15" left="15" right="15" top="10" />
+                </padding>
+
+                <Label text="Processar Cliente">
+                    <font>
+                        <Font size="28" />
+                    </font>
+                </Label>
+            </VBox>
+
+        </VBox>
+    </top>
+
+    <!-- CENTRO -->
+    <center>
+        <VBox spacing="20">
+
+            <padding>
+                <Insets bottom="15" left="15" right="15" top="15" />
+            </padding>
+
+            <!-- FORMULÁRIO -->
+            <GridPane hgap="15" vgap="15">
+
+                <columnConstraints>
+                    <ColumnConstraints hgrow="ALWAYS" />
+                    <ColumnConstraints hgrow="ALWAYS" />
+                    <ColumnConstraints hgrow="ALWAYS" />
+                    <ColumnConstraints hgrow="ALWAYS" />
+                </columnConstraints>
+
+                <!-- Cliente -->
+                <ComboBox fx:id="cbCliente" editable="true" prefHeight="35.0" prefWidth="174.0" promptText="Buscar cliente..." GridPane.columnIndex="0" GridPane.rowIndex="0">
+                </ComboBox>
+                <ComboBox fx:id="cbProduto" editable="true" prefHeight="35.0" prefWidth="174.0" promptText="Buscar produto..." GridPane.columnIndex="1" GridPane.rowIndex="0">
+                </ComboBox>
+
+                <!-- Quantidade -->
+                <TextField fx:id="txtQuantidade" promptText="Quantidade" GridPane.columnIndex="2" GridPane.rowIndex="0">
+                    <font><Font size="16" /></font>
+                </TextField>
+
+                <!-- Botão adicionar -->
+                <Button onAction="#adicionarProduto" prefHeight="37.0" prefWidth="198.0" text="Adicionar Produto" GridPane.columnIndex="3" GridPane.rowIndex="0">
+                    <font><Font size="16" /></font>
+                </Button>
+                <Button onAction="#atualizarItemCarrinho" prefHeight="37.0" prefWidth="198.0" text="Atualizar Carrinho" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                    <font><Font size="16" /></font>
+                </Button>
+
+                <!-- Busca carrinho -->
+                <TextField fx:id="txtBuscarCarrinho" promptText="Buscar no carrinho..." GridPane.columnIndex="3" GridPane.rowIndex="1">
+                    <font><Font size="16" /></font>
+                </TextField>
+
+                <rowConstraints>
+                    <RowConstraints />
+                    <RowConstraints />
+                </rowConstraints>
+
+            </GridPane>
+
+            <!-- BOTÕES -->
+            <HBox spacing="15">
+
+                <Button onAction="#finalizarCompra" text="Finalizar Compra">
+                    <font><Font size="16" /></font>
+                </Button>
+
+                <Button onAction="#removerItem" text="Remover Item">
+                    <font><Font size="16" /></font>
+                </Button>
+
+                <Label fx:id="txtLabel" prefHeight="35" prefWidth="500">
+                    <font><Font size="24" /></font>
+                </Label>
+
+            </HBox>
+
+            <!-- TABELA -->
+            <TableView fx:id="tbCarrinho" VBox.vgrow="ALWAYS">
+
+                <columns>
+
+                    <TableColumn fx:id="colProduto" prefWidth="250" text="Produto" />
+                    <TableColumn fx:id="colQtd" prefWidth="80" text="Qtd" />
+                    <TableColumn fx:id="colPrecoUni" prefWidth="120" text="Preço Unitário" />
+                    <TableColumn fx:id="colPrecoTotal" prefWidth="120" text="Preço Total" />
+
+                </columns>
+
+            </TableView>
+
+        </VBox>
+    </center>
+
+</BorderPane>

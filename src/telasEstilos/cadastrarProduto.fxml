@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlers.CadastrarProdutoController">
+
+    <!-- TOPO -->
+    <top>
+        <VBox>
+
+            <!-- MENU -->
+            <MenuBar>
+                <menus>
+                    <Menu text="Home">
+                        <items>
+                            <MenuItem fx:id="itemInicio" text="Inicio" />
+                            <MenuItem fx:id="itemSair" text="Sair" />
+                        </items>
+                    </Menu>
+
+                    <Menu text="Cadastrar" fx:id="menuCadastrar">
+                        <items>
+                            <MenuItem fx:id="itemFuncionario" text="Funcionário" />
+                            <MenuItem fx:id="itemCliente" text="Cliente" />
+                        </items>
+                    </Menu>
+
+                    <Menu text="Processar" fx:id="menuProcessar">
+                        <items>
+                            <MenuItem fx:id="itemProcessarEstoque" text="Estoque" />
+                            <MenuItem fx:id="itemProcessarCliente" text="Cliente" />
+                        </items>
+                    </Menu>
+
+                    <Menu text="Ajuda">
+                        <items>
+                            <MenuItem fx:id="itemSobre" text="Sobre" />
+                        </items>
+                    </Menu>
+                </menus>
+            </MenuBar>
+
+            <!-- TÍTULO -->
+            <VBox>
+                <padding>
+                    <Insets bottom="15" left="15" right="15" top="10" />
+                </padding>
+
+                <Label text="Cadastrar Produto">
+                    <font>
+                        <Font size="28" />
+                    </font>
+                </Label>
+            </VBox>
+
+        </VBox>
+    </top>
+
+    <!-- CENTRO -->
+    <center>
+        <VBox spacing="20">
+            <padding>
+                <Insets bottom="15" left="15" right="15" top="15" />
+            </padding>
+
+            <!-- FORMULÁRIO -->
+            <GridPane hgap="15" vgap="15">
+
+                <columnConstraints>
+                    <ColumnConstraints hgrow="ALWAYS" />
+                    <ColumnConstraints hgrow="ALWAYS" />
+                    <ColumnConstraints hgrow="ALWAYS" />
+                    <ColumnConstraints hgrow="ALWAYS" />
+                </columnConstraints>
+
+                <TextField fx:id="txtID" disable="true" promptText="ID" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                    <font><Font size="16" /></font>
+                </TextField>
+
+                <TextField fx:id="txtCodBarras" disable="true" promptText="Cód. Barras" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                    <font><Font size="16" /></font>
+                </TextField>
+
+                <TextField fx:id="txtNome" promptText="Nome" GridPane.columnIndex="2" GridPane.rowIndex="0">
+                    <font><Font size="16" /></font>
+                </TextField>
+
+                <TextField fx:id="txtDescricao" promptText="Descrição" GridPane.columnIndex="3" GridPane.rowIndex="0">
+                    <font><Font size="16" /></font>
+                </TextField>
+
+                <ComboBox fx:id="txtCategoria" prefHeight="37.0" prefWidth="197.0" promptText="Categoria" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+
+                <TextField fx:id="txtPreco" promptText="Preço" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                    <font><Font size="16" /></font>
+                </TextField>
+
+                <TextField fx:id="txtQuantidade" promptText="Quantidade" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                    <font><Font size="16" /></font>
+                </TextField>
+
+                <TextField fx:id="txtBuscar" promptText="Buscar Produto..." GridPane.columnIndex="3" GridPane.rowIndex="1">
+                    <font><Font size="16" /></font>
+                </TextField>
+            <rowConstraints>
+               <RowConstraints />
+               <RowConstraints />
+            </rowConstraints>
+
+            </GridPane>
+
+            <!-- BOTÕES -->
+            <HBox spacing="15">
+                <Button fx:id="btnSalvar" text="Salvar Produto" onAction="#SalvarProduto">
+                    <font><Font size="16" /></font>
+                </Button>
+
+                <Button fx:id="btnExcluir" text="Excluir Produto" onAction="#ExcluirProduto">
+                    <font><Font size="16" /></font>
+                </Button>
+            <Label fx:id="txtLabel" prefHeight="35.0" prefWidth="494.0">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            </HBox>
+
+            <!-- TABELA -->
+            <TableView fx:id="tbProdutos" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="colid" prefWidth="57.0" text="ID" />
+                    <TableColumn fx:id="colCodBarras" prefWidth="115.0" text="Código Barras" />
+                    <TableColumn fx:id="colNome" minWidth="0.0" prefWidth="237.0" text="Nome" />
+                    <TableColumn fx:id="colDescricao" minWidth="0.0" prefWidth="216.0" text="Descrição" />
+                    <TableColumn fx:id="colCategoria" prefWidth="126.0" text="Categoria" />
+                    <TableColumn fx:id="colPreco" prefWidth="126.0" text="Preço" />
+                    <TableColumn fx:id="colQuantidade" prefWidth="85.0" text="Quantidade" />
+                </columns>
+            </TableView>
+
+        </VBox>
+    </center>
+
+</BorderPane>
